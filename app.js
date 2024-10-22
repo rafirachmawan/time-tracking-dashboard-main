@@ -5,7 +5,41 @@ document.addEventListener("DOMContentLoaded", () => {
       const container = document.getElementById("cards-container");
       data.forEach((item) => {
         const card = document.createElement("div");
-        card.classList.add("bg-blue-900", "p-6", "rounded-lg", "relative");
+
+        // Tentukan URL gambar background SVG berdasarkan title
+        let bgImage = "";
+        switch (item.title) {
+          case "Work":
+            bgImage = "url('images/icon-work.svg')";
+            break;
+          case "Play":
+            bgImage = "url('images/play-bg.svg')";
+            break;
+          case "Study":
+            bgImage = "url('images/study-bg.svg')";
+            break;
+          case "Exercise":
+            bgImage = "url('images/exercise-bg.svg')";
+            break;
+          case "Social":
+            bgImage = "url('images/social-bg.svg')";
+            break;
+          case "Self Care":
+            bgImage = "url('images/selfcare-bg.svg')";
+            break;
+        }
+
+        // Tambahkan class dan style untuk card
+        card.classList.add(
+          "bg-blue-900",
+          "p-6",
+          "rounded-lg",
+          "relative",
+          "bg-cover"
+        );
+        card.style.backgroundImage = bgImage;
+        card.style.backgroundPosition = "right top"; // Posisi background
+        card.style.backgroundRepeat = "no-repeat"; // Jangan ulang gambar
 
         // Card content
         card.innerHTML = `
