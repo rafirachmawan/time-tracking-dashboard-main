@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Tracking Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-900 text-white">
+  <div class="flex justify-center items-center min-h-screen">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-6xl">
+      <!-- Profile Card -->
+      <div class="col-span-1 bg-indigo-600 p-6 rounded-lg flex flex-col justify-between">
+        <div>
+          <img src="./images/image-jeremy.png" alt="Profile Picture" class="rounded-full w-16 h-16 mb-4">
+          <h1 class="text-2xl font-bold">Report for</h1>
+          <p class="text-3xl font-bold">Jeremy Robson</p>
+        </div>
+        <div class="mt-6">
+          <button class="block mb-2 text-gray-400">Daily</button>
+          <button class="block mb-2 text-white">Weekly</button>
+          <button class="block mb-2 text-gray-400">Monthly</button>
+        </div>
+      </div>
+
+      <!-- Time Cards -->
+      <div id="cards-container" class="col-span-3 grid grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cards will be dynamically generated here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
