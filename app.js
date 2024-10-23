@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   let selectedTimeframe = "weekly"; // Default timeframe
 
+  // Array warna untuk bgContainer1
+  const colors = ["orange", "red", "green", "blue", "purple", "teal", "pink"];
+
   // Fetch data dari file JSON
   fetch("data.json")
     .then((response) => response.json())
@@ -10,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const container = document.getElementById("cards-container");
         container.innerHTML = ""; // Kosongkan container sebelum menambahkan konten baru
 
-        data.forEach((item) => {
+        data.forEach((item, index) => {
           const card = document.createElement("div");
 
           // Tambahkan class dan style untuk card
@@ -19,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // Buat dua container untuk latar belakang
           const bgContainer1 = document.createElement("div");
-          bgContainer1.style.backgroundColor = "orange"; // Warna latar belakang pertama
+          bgContainer1.style.backgroundColor = colors[index % colors.length]; // Warna latar belakang pertama
           bgContainer1.style.height = "50%"; // Setengah tinggi card
           bgContainer1.style.width = "100%"; // Lebar penuh
           bgContainer1.style.position = "absolute";
