@@ -2,7 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
   let selectedTimeframe = "weekly"; // Default timeframe
 
   // Array warna untuk bgContainer1
-  const colors = ["orange", "red", "green", "blue", "purple", "teal", "pink"];
+  const colors = [
+    "hsl(15, 100%, 70%)",
+    "hsl(195,74%,62%)",
+    "hsl(348, 100%, 68%)",
+    "hsl(145, 58%, 55%)",
+    "hsl(264, 64%, 52%)",
+    "hsl(43, 84%, 65%)",
+  ];
 
   // Fetch data dari file JSON
   fetch("data.json")
