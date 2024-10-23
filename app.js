@@ -13,55 +13,50 @@ document.addEventListener("DOMContentLoaded", () => {
         data.forEach((item) => {
           const card = document.createElement("div");
 
-          // Tentukan URL gambar background SVG berdasarkan title
-          let bgImage = "";
-          switch (item.title) {
-            case "Work":
-              bgImage = "url('images/icon-work.svg')";
-              break;
-            case "Play":
-              bgImage = "url('images/play-bg.svg')";
-              break;
-            case "Study":
-              bgImage = "url('images/study-bg.svg')";
-              break;
-            case "Exercise":
-              bgImage = "url('images/exercise-bg.svg')";
-              break;
-            case "Social":
-              bgImage = "url('images/social-bg.svg')";
-              break;
-            case "Self Care":
-              bgImage = "url('images/selfcare-bg.svg')";
-              break;
-          }
-
           // Tambahkan class dan style untuk card
-          card.classList.add(
-            "bg-blue-900",
+          card.classList.add("relative", "rounded-lg", "overflow-hidden");
+          card.style.height = "200px"; // Atur tinggi card sesuai kebutuhan
+
+          // Buat dua container untuk latar belakang
+          const bgContainer1 = document.createElement("div");
+          bgContainer1.style.backgroundColor = "orange"; // Warna latar belakang pertama
+          bgContainer1.style.height = "50%"; // Setengah tinggi card
+          bgContainer1.style.width = "100%"; // Lebar penuh
+          bgContainer1.style.position = "absolute";
+          bgContainer1.style.top = "0"; // Posisi di atas
+
+          const bgContainer2 = document.createElement("div");
+          bgContainer2.style.backgroundColor = "#1e40af"; // Warna latar belakang kedua (biru)
+          bgContainer2.style.height = "80%"; // Setengah tinggi card
+          bgContainer2.style.width = "100%"; // Lebar penuh
+          bgContainer2.style.position = "absolute";
+          bgContainer2.style.bottom = "0"; // Posisi di bawah
+
+          // Tambahkan konten ke container kedua
+          const contentContainer = document.createElement("div");
+          contentContainer.classList.add(
             "p-6",
-            "rounded-lg",
             "relative",
-            "bg-cover"
-          );
-          card.style.backgroundImage = bgImage;
-          card.style.backgroundPosition = "right top"; // Posisi background
-          card.style.backgroundRepeat = "no-repeat"; // Jangan ulang gambar
+            "z-10",
+            "text-white"
+          ); // Posisi di atas latar belakang
+          contentContainer.innerHTML = `
+            <div class="flex justify-between items-center">
+              <h2 class="text-xl font-bold">${item.title}</h2>
+              <button class="text-gray-400">...</button>
+            </div>
+            <p class="text-4xl font-bold">${
+              item.timeframes[timeframe].current
+            }hrs</p>
+            <p class="text-gray-400">Last ${
+              timeframe.charAt(0).toUpperCase() + timeframe.slice(1)
+            } - ${item.timeframes[timeframe].previous}hrs</p>
+          `;
 
-          // Card content berdasarkan timeframe yang dipilih
-          card.innerHTML = `
-              <div class="flex justify-between items-center">
-                <h2 class="text-xl font-bold text-white">${item.title}</h2>
-                <button class="text-gray-400">...</button>
-              </div>
-              <p class="text-4xl font-bold text-white">${
-                item.timeframes[timeframe].current
-              }hrs</p>
-              <p class="text-gray-400">Last ${
-                timeframe.charAt(0).toUpperCase() + timeframe.slice(1)
-              } - ${item.timeframes[timeframe].previous}hrs</p>
-            `;
-
+          // Tambahkan semua elemen ke card
+          card.appendChild(bgContainer1);
+          card.appendChild(bgContainer2);
+          bgContainer2.appendChild(contentContainer); // Tambahkan konten hanya ke bgContainer2
           container.appendChild(card);
         });
       }
