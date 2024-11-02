@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
           bgContainer1.style.top = "0"; // Posisi di atas
 
           const bgContainer2 = document.createElement("div");
-          bgContainer2.style.backgroundColor = "#1e40af"; // Warna latar belakang kedua (biru)
+          bgContainer2.style.backgroundColor = "hsl(235, 46%, 20%)"; // Warna latar belakang kedua (biru)
           bgContainer2.style.height = "80%"; // Setengah tinggi card
           bgContainer2.style.width = "100%"; // Lebar penuh
           bgContainer2.style.position = "absolute";
